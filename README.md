@@ -83,18 +83,11 @@ npm install
 
 ## Equipe
 Nossa equipe é composta por profissionais dedicados ao desenvolvimento e manutenção deste projeto:
-
-### Desenvolvedores
-- João Silva - Desenvolvedor Frontend
-- Maria Santos - Desenvolvedora Frontend
-- Pedro Oliveira - Desenvolvedor Full Stack
-
-### Design
-- Ana Costa - UI/UX Designer
-
-### Gestão
-- Carlos Mendes - Product Owner
-- Beatriz Souza - Scrum Master
+- Leonardo Hideki
+- Thiago Moscatini
+- Daniel Servino
+- Pedro Marques
+- Wellington José
 
 ## Contribuição
 Se deseja contribuir com o projeto, siga estas etapas:

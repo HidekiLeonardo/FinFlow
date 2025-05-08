@@ -1,116 +1,140 @@
 # Gerenciador Financeiro
 
 ## Descrição
-Este documento fornece informações detalhadas sobre o Gerenciador Financeiro, um sistema web desenvolvido para auxiliar no controle de receitas e despesas pessoais de forma simples e eficiente.
+Sistema web para gerenciamento de finanças pessoais, desenvolvido com React, TypeScript e Tailwind CSS. Permite o controle de receitas e despesas, visualização de relatórios e análise de gastos por categoria.
 
 ## Índice
-- [Introdução](#introdução)
-- [Arquitetura do Sistema](#arquitetura-do-sistema)
 - [Funcionalidades](#funcionalidades)
-- [Requisitos Técnicos](#requisitos-técnicos)
+- [Tecnologias](#tecnologias)
+- [Arquitetura](#arquitetura)
 - [Instalação](#instalação)
-- [Configuração](#configuração)
 - [Uso](#uso)
-- [Manutenção](#manutenção)
-- [Equipe](#equipe)
+- [Estrutura de Dados](#estrutura-de-dados)
 - [Contribuição](#contribuição)
 - [Licença](#licença)
 
-## Introdução
-O Gerenciador Financeiro foi desenvolvido para simplificar o controle financeiro pessoal. Ele fornece uma solução eficiente para o registro e acompanhamento de receitas e despesas, permitindo uma visão clara do fluxo financeiro.
+## Funcionalidades
+- ✅ Registro de receitas e despesas
+- 📊 Gráfico de distribuição de gastos
+- 🔍 Pesquisa e filtragem de transações
+- 📅 Análise mensal de gastos
+- 🌓 Tema claro/escuro
+- 📱 Interface responsiva
+- 💾 Persistência local de dados
+- 🔔 Notificações de ações
 
-## Arquitetura do Sistema
-A arquitetura do sistema segue um modelo de Single Page Application (SPA), utilizando as seguintes tecnologias:
+## Tecnologias
 - React 18.3.1
 - TypeScript
 - Tailwind CSS
 - Vite
-- Lucide React (para ícones)
+- Lucide React (ícones)
+- React Hot Toast (notificações)
+- Recharts (gráficos)
 
-## Funcionalidades
-O sistema possui as seguintes funcionalidades principais:
-- Registro de receitas e despesas
-- Cálculo automático do saldo total
-- Visualização do histórico de transações
-- Exclusão de transações
-- Interface responsiva e amigável
-- Validação de dados de entrada
+## Arquitetura
 
-## Requisitos Técnicos
-Para rodar o sistema, são necessários os seguintes requisitos:
-- Node.js (versão 16.0.0 ou superior)
-- NPM (versão 7.0.0 ou superior)
-- Navegador web moderno (Chrome, Firefox, Safari ou Edge)
+### Estrutura de Diretórios
+```
+src/
+├── models/          # Classes e interfaces
+├── docs/           # Documentação
+├── components/     # Componentes React
+└── styles/        # Estilos CSS
+```
+
+### Modelagem de Dados
+O sistema utiliza três entidades principais:
+- **Transaction**: Registros de receitas e despesas
+- **User**: Informações do usuário
+- **Category**: Categorias de transações
+
+Para mais detalhes, consulte o [Diagrama ER](docs/DER.md).
 
 ## Instalação
-Para instalar o sistema, siga os passos abaixo:
+
 ```bash
 # Clone o repositório
 git clone https://github.com/seu-usuario/gerenciador-financeiro.git
 
-# Acesse o diretório do projeto
+# Acesse o diretório
 cd gerenciador-financeiro
 
 # Instale as dependências
 npm install
-```
 
-## Configuração
-O projeto não requer configurações adicionais após a instalação. Todas as dependências necessárias são instaladas automaticamente através do package.json.
-
-## Uso
-Para iniciar o sistema em modo de desenvolvimento, utilize o comando:
-```bash
+# Inicie o servidor de desenvolvimento
 npm run dev
 ```
 
-Para criar uma build de produção:
-```bash
-npm run build
+## Uso
+
+### Adicionar Transação
+1. Preencha a descrição
+2. Informe o valor
+3. Selecione o tipo (receita/despesa)
+4. Escolha a categoria
+5. Clique em "Adicionar"
+
+### Visualizar Relatórios
+- Use o gráfico de pizza para análise de gastos
+- Selecione mês/ano para análise temporal
+- Utilize a barra de pesquisa para filtrar transações
+
+### Temas
+- Alterne entre tema claro/escuro no botão superior direito
+
+## Estrutura de Dados
+
+### Transaction
+```typescript
+{
+  id: UUID
+  description: string
+  amount: number
+  type: 'income' | 'expense'
+  category: string
+  date: Date
+  user_id: UUID
+}
 ```
 
-Para visualizar a build de produção localmente:
-```bash
-npm run preview
+### User
+```typescript
+{
+  id: UUID
+  email: string
+  name: string
+  created_at: Date
+}
 ```
 
-## Manutenção
-Para atualizar o sistema, execute:
-```bash
-git pull origin main
-npm install
+### Category
+```typescript
+{
+  id: UUID
+  name: string
+  type: 'income' | 'expense'
+  user_id: UUID
+}
 ```
-
-## Equipe
-Nossa equipe é composta por profissionais dedicados ao desenvolvimento e manutenção deste projeto:
-
-### Desenvolvedores
-- João Silva - Desenvolvedor Frontend
-- Maria Santos - Desenvolvedora Frontend
-- Pedro Oliveira - Desenvolvedor Full Stack
-
-### Design
-- Ana Costa - UI/UX Designer
-
-### Gestão
-- Carlos Mendes - Product Owner
-- Beatriz Souza - Scrum Master
 
 ## Contribuição
-Se deseja contribuir com o projeto, siga estas etapas:
-1. Faça um fork do repositório
-2. Crie um branch para sua feature (`git checkout -b feature/nova-funcionalidade`)
-3. Faça o commit das alterações (`git commit -m 'Adiciona nova funcionalidade'`)
-4. Envie para o repositório remoto (`git push origin feature/nova-funcionalidade`)
+
+### Processo
+1. Fork o repositório
+2. Crie uma branch (`git checkout -b feature/nova-funcionalidade`)
+3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
+4. Push para a branch (`git push origin feature/nova-funcionalidade`)
 5. Abra um Pull Request
 
-### Padrões de Código
-- Utilize TypeScript para todo código novo
-- Siga as regras do ESLint configuradas no projeto
-- Mantenha a formatação consistente com o Prettier
+### Padrões
+- Use TypeScript
+- Siga as regras do ESLint
+- Mantenha a formatação do Prettier
 - Escreva testes para novas funcionalidades
 - Mantenha os componentes React pequenos e focados
 - Use Tailwind CSS para estilização
 
 ## Licença
-Este projeto é licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.
+Este projeto está licenciado sob a MIT License. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.

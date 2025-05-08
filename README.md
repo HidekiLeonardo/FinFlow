@@ -67,57 +67,37 @@ npm install
 npm run dev
 ```
 
-## Uso
-
-### Adicionar Transação
-1. Preencha a descrição
-2. Informe o valor
-3. Selecione o tipo (receita/despesa)
-4. Escolha a categoria
-5. Clique em "Adicionar"
-
-### Visualizar Relatórios
-- Use o gráfico de pizza para análise de gastos
-- Selecione mês/ano para análise temporal
-- Utilize a barra de pesquisa para filtrar transações
-
-### Temas
-- Alterne entre tema claro/escuro no botão superior direito
-
-## Estrutura de Dados
-
-### Transaction
-```typescript
-{
-  id: UUID
-  description: string
-  amount: number
-  type: 'income' | 'expense'
-  category: string
-  date: Date
-  user_id: UUID
-}
+Para criar uma build de produção:
+```bash
+npm run build
 ```
 
-### User
-```typescript
-{
-  id: UUID
-  email: string
-  name: string
-  created_at: Date
-}
+Para visualizar a build de produção localmente:
+```bash
+npm run preview
 ```
 
-### Category
-```typescript
-{
-  id: UUID
-  name: string
-  type: 'income' | 'expense'
-  user_id: UUID
-}
+## Manutenção
+Para atualizar o sistema, execute:
+```bash
+git pull origin main
+npm install
 ```
+
+## Equipe
+Nossa equipe é composta por profissionais dedicados ao desenvolvimento e manutenção deste projeto:
+
+### Desenvolvedores
+- João Silva - Desenvolvedor Frontend
+- Maria Santos - Desenvolvedora Frontend
+- Pedro Oliveira - Desenvolvedor Full Stack
+
+### Design
+- Ana Costa - UI/UX Designer
+
+### Gestão
+- Carlos Mendes - Product Owner
+- Beatriz Souza - Scrum Master
 
 ## Contribuição
 
@@ -137,4 +117,4 @@ npm run dev
 - Use Tailwind CSS para estilização
 
 ## Licença
-Este projeto está licenciado sob a MIT License. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto é licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.
